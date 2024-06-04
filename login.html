@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+            color: #fff;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            background: #fff;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .input-group img {
+            width: 35px;  /* 15% más grande que 24px */
+            height: 35px; /* 15% más grande que 24px */
+            padding: 10px;
+        }
+
+        input {
+            flex-grow: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #00c6ff;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background: #007acc;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;  /* Posición inicial en el medio */
+            transform: translateY(-70%);  /* Centra verticalmente */
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .toggle-password img {
+            width: 35px;  /* 15% más grande que 24px */
+            height: 35px; /* 15% más grande que 24px */
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="loginForm">
+            <h2>Inicio de Sesión</h2>
+            <div class="input-group">
+                <img src="static/usuario.png" alt="Usuario Icono">
+                <input type="text" id="usuario" placeholder="Usuario" required>
+            </div>
+            <div class="input-group">
+                <img src="static/contrasena.png" alt="Contraseña Icono">
+                <input type="password" id="contrasena" placeholder="Contraseña" required>
+                <button type="button" class="toggle-password" onclick="togglePassword()">
+                    <img src="static/ojo.png" alt="Mostrar Contraseña Icono" id="toggleIcon">
+                </button>
+            </div>
+            <button type="submit">Ingresar</button>
+        </form>
+    </div>
+    <script>
+        function togglePassword() {
+            const passwordInput = document.getElementById('contrasena');
+            const toggleIcon = document.getElementById('toggleIcon');
+            const isPasswordVisible = passwordInput.type === 'text';
+            passwordInput.type = isPasswordVisible ? 'password' : 'text';
+            toggleIcon.src = isPasswordVisible ? 'static/ojo.png' : 'static/esconder.png';
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                loginForm.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    const usuario = document.getElementById('usuario').value;
+                    const contrasena = document.getElementById('contrasena').value;
+                    if (usuario === "admin" && contrasena === "admin") {
+                        alert('Inicio de sesión exitoso');
+                        window.location.href = 'menu.html';
+                    } else {
+                        alert('Usuario o contraseña incorrectos');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

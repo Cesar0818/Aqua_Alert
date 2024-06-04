@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQUA_ALERT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #282828;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .header h1 {
+            margin: 0;
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            top: 30px;
+            left: 10%; /* Cambia este valor según tu preferencia */
+            transform: translateX(-400%);
+        }
+
+        .notification-icon {
+            display: flex;
+            align-items: center;
+        }
+
+        .notification-icon img {
+            margin-left: 10px;
+            cursor: pointer;
+            width: 24px; /* Ajusta el tamaño según tus necesidades */
+            height: 24px;
+        }
+
+        .main-content {
+            margin-top: 60px; /* Mueve el contenido principal más abajo */
+        }
+
+        .tank-image {
+            width: 100px;
+            height: auto;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px; /* Mueve los botones más abajo */
+        }
+
+        .navigation button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            background-color: #ffffff; /* Cambiado a blanco */
+            border: none;
+            color: #000000; /* Cambiado a negro para contraste */
+            cursor: pointer;
+            border-radius: 5px;
+            width: 45%;
+        }
+
+        .navigation button:hover {
+            background-color: #dddddd; /* Cambiado a gris claro */
+        }
+
+        .navigation img {
+            margin-right: 8px;
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AQUA_ALERT</h1>
+            <div class="notification-icon">
+                <img src="static/campana.png" alt="Notificación Icono">
+                <img src="static/usuario.png" alt="Perfil Icono">
+            </div>
+        </div>
+        <div class="main-content">
+            <img src="static/Logo.jpg" alt="Water Tank" class="tank-image">
+        </div>
+        <div class="navigation">
+            <button onclick="location.href='Consumo_agua.html'">
+                <img src="static/tanque.png" alt="Nivel Icono"> Nivel de agua
+            </button>
+            <button onclick="location.href='Reg.html'">
+                <img src="static/historial.png" alt="Historial Icono"> Historial
+            </button>
+        </div>
+    </div>
+</body>
+</html>
