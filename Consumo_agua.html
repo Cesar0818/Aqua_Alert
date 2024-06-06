@@ -29,24 +29,23 @@
 
         .header {
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
             align-items: center;
-            position: absolute;
-            top: 10px;
-            right: 10px;
+            position: relative; /* Cambiado de absolute a relative */
         }
 
         .header h1 {
             margin: 0;
             width: 100%;
             text-align: center;
-            position: absolute;
-            top: 30px;
-            left: 10%;
-            transform: translateX(-400%);
+            position: relative; /* Cambiado de absolute a relative */
+            top: 10px; /* Ajustar según sea necesario */
         }
 
         .notification-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
             display: flex;
             align-items: center;
         }
@@ -59,7 +58,7 @@
         }
 
         .main-content {
-            margin-top: 60px;
+            margin-top: 60px; /* Ajusta el espacio entre AQUA_ALERT y los mensajes */
         }
 
         .tank-image {
@@ -70,7 +69,7 @@
         .navigation {
             display: flex;
             justify-content: space-around;
-            margin-top: 40px;
+            margin-top: 20px; /* Reducido el espacio entre los mensajes y la navegación */
         }
 
         .navigation button {
@@ -101,7 +100,7 @@
         }
 
         #inputSection, #cisternaSection {
-            margin-top: 20px;
+            margin-top: 10px; /* Reducido el espacio superior de las secciones de entrada */
         }
 
         #cisternaSection {
@@ -138,6 +137,26 @@
         #submitBtn:hover {
             background-color: #dddddd;
         }
+
+        .message {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .water-level {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        #inputSection {
+            margin-top: 10px; /* Reducir margen superior */
+        }
+
+        .main-content {
+            margin-bottom: 10px; /* Reducir margen inferior para reducir el espacio */
+        }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -151,9 +170,9 @@
             </div>
         </div>
         <div class="main-content">
-            <div id="waterLevel">Cargando...</div>
-            <div id="message">Cargando...</div>
-            <canvas id="waterLevelChart" width="400" height="200"></canvas>
+            <div id="waterLevel" class="water-level">Cargando...</div>
+            <div id="message" class="message">Cargando...</div>
+            <canvas id="waterLevelChart" width="200" height="100"></canvas>
         </div>
         <div id="inputSection">
             <div class="input-field">
@@ -248,7 +267,7 @@
             document.getElementById('cisternaActualLevel').innerText = 'Nivel de agua de la cisterna: ' + cisternaLevel + ' litros';
         }
 
-        setInterval(fetchData, 15000);
+        setInterval(fetchData, 2000); // Cambiado a 2000 ms (2 segundos)
         fetchData();
     </script>
 </body>
